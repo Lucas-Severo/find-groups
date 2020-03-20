@@ -12,6 +12,10 @@ const GroupSchema = Schema({
     media: {
         type: String,
         require: true
+    },
+    url: {
+        type: String,
+        require: true
     }
 }, {
     timestamps: true
