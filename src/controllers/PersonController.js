@@ -4,9 +4,9 @@ module.exports = {
     async index(req, res) {
         const { id } = req.headers;
 
-        const groups = await Person.findById(id).groups;
+        const person = await Person.findById(id);
 
-        return res.json(groups);
+        return res.json({ groups: person.groups });
     },
     async store(req, res) {
         const { nickname, name, email, password } = req.body;

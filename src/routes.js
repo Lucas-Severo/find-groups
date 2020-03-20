@@ -11,7 +11,7 @@ router.put("/group/:id", GroupController.update);
 router.delete("/group/:id", GroupController.delete);
 
 // Person
-router.get("/person/groups", GroupController.index);
+router.get("/person/groups", PersonController.index);
 router.post("/person/register", PersonController.store);
 
 module.exports = router;
