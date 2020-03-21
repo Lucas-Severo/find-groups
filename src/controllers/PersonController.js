@@ -16,8 +16,8 @@ module.exports = {
     async show(req, res) {
         // checking if the user is logged in
         try {
-            const { id } = req.headers;
-            const person = await Person.findById(id);
+            const { userid } = req.headers;
+            const person = await Person.findById(userid);
             return res.json({ groups: person.groups });
         } catch (err) {
             return res.json({ error: "user is not logged in"})

@@ -3,9 +3,18 @@ const router = express.Router();
 
 const GroupController = require('./controllers/GroupController');
 const PersonController = require('./controllers/PersonController');
+const authMiddleware = require('./middlewares/auth');
+
+
+// routes that doesn't need authentication
+router.post("/person/register", PersonController.store);
+router.post("/person/authenticate", PersonController.authenticate);
+router.get('/group', GroupController.index);
+
+// routes that need authentication
+router.use(authMiddleware);
 
 // Group
-router.get('/group', GroupController.index);
 router.post("/group", GroupController.store);
 router.put("/group/:id", GroupController.update);
 router.delete("/group/:id", GroupController.delete);
@@ -14,7 +23,6 @@ router.delete("/group/:id", GroupController.delete);
 router.get("/person", PersonController.index);
 // show the groups that the person created
 router.get("/person/groups", PersonController.show);
-router.post("/person/register", PersonController.store);
-router.post("/person/authenticate", PersonController.authenticate);
+
 
 module.exports = router;
