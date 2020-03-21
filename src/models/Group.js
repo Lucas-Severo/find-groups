@@ -7,15 +7,18 @@ const GroupSchema = Schema({
     },
     category: {
         type: String,
-        require: true
+        require: true,
+        lowercase: true
     },
     media: {
         type: String,
-        require: true
+        require: true,
+        lowercase: true
     },
     url: {
         type: String,
-        require: true
+        require: true,
+        lowercase: true
     }
 }, {
     timestamps: true

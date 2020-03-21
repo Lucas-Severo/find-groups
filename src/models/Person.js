@@ -3,7 +3,9 @@ const { Schema, model } = require('mongoose');
 const PersonSchema = Schema({
     nickname: {
         type: String,
-        require: true
+        unique: true,
+        require: true,
+        lowercase: true
     },
     name: {
         type: String,
@@ -11,11 +13,14 @@ const PersonSchema = Schema({
     },
     email: {
         type: String,
-        require: true
+        unique: true,
+        require: true,
+        lowercase: true
     },
     password: {
         type: String,
-        require: true
+        require: true,
+        select: false
     },
     groups: [{
         type: Schema.Types.ObjectId,

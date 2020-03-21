@@ -11,7 +11,9 @@ router.put("/group/:id", GroupController.update);
 router.delete("/group/:id", GroupController.delete);
 
 // Person
-router.get("/person/groups", PersonController.index);
+router.get("/person", PersonController.index);
+// show the groups that the person created
+router.get("/person/groups", PersonController.show);
 router.post("/person/register", PersonController.store);
 
 module.exports = router;

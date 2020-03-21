@@ -6,7 +6,8 @@ const router = require('./routes');
 
 mongoose.connect('yourURL', 
                 {useNewUrlParser: true,
-                 useUnifiedTopology: true
+                 useUnifiedTopology: true,
+                 useCreateIndex: true
                 })
 
 server.use(express.json());
