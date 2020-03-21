@@ -15,5 +15,6 @@ router.get("/person", PersonController.index);
 // show the groups that the person created
 router.get("/person/groups", PersonController.show);
 router.post("/person/register", PersonController.store);
+router.post("/person/authenticate", PersonController.authenticate);
 
 module.exports = router;
