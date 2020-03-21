@@ -15,6 +15,7 @@ router.get('/group', GroupController.index);
 router.use(authMiddleware);
 
 // Group
+router.get('/group/:id', GroupController.show);
 router.post("/group", GroupController.store);
 router.put("/group/:id", GroupController.update);
 router.delete("/group/:id", GroupController.delete);

@@ -49,6 +49,20 @@ module.exports = {
 
         return res.json(group);
     },
+    async show(req, res) {
+        const { id } = req.params;
+        const { userid } = req.headers;
+
+        if (!userid)
+            return res.json({error: "user is not logged in"});
+        
+        try {
+            const group = await Group.findById(id);
+            return res.json(group);
+        } catch(err) {
+            return res.json({error: "group not found"});
+        }
+    },
     async update(req, res) {
         const { userid } = req.headers;
 
