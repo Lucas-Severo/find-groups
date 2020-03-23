@@ -9,7 +9,7 @@ const authMiddleware = require('./middlewares/auth');
 // routes that doesn't need authentication
 router.post("/person/register", PersonController.store);
 router.post("/person/authenticate", PersonController.authenticate);
-router.get('/group', GroupController.index);
+router.post('/groups', GroupController.index);
 
 // routes that need authentication
 router.use(authMiddleware);
