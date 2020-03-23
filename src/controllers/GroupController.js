@@ -4,13 +4,14 @@ const Person = require('../models/Person');
 module.exports = {
     async index(req, res){
         const { category } = req.body;
+        const { page = 1 } = req.query;
 
         let groups;
 
         if( category === "all")
-            groups = await Group.find();
+            groups = await Group.paginate({}, { page: page, limit: 6 });
         else
-            groups = await Group.find({ category });
+            groups = await Group.paginate({ category }, { page: page, limit: 6 });
 
         return res.json(groups);
     },

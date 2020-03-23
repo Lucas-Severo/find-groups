@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const paginate = require('mongoose-paginate');
 
 const GroupSchema = Schema({
     name: {
@@ -24,4 +25,5 @@ const GroupSchema = Schema({
     timestamps: true
 });
 
+GroupSchema.plugin(paginate);
 module.exports = model('group', GroupSchema);
